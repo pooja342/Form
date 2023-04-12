@@ -5,6 +5,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src = "https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+        <script src = "https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js" ></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -12,23 +14,23 @@
         <div class="row justify-content-center">
             <div class="col-lg-9">
                 <h1 class="mb-3">Register Page</h1>
-                <form action="method.php" id="validation-form" method="post" enctype="multipart/form-data" >
+                <form action="method.php" id="validationform" method="post" enctype="multipart/form-data" >
                     <div class="row g-3">
                     <div class="col-md-6">
                         <label for="your-name" class="form-label">Your Name</label>
-                        <input type="text" class="form-control" id="your-name" name="name" required>
+                        <input type="text"  class="form-control" id="your-name" name="name" required>
                     </div>
                     <div class="col-md-6">
                         <label for="your-surname" class="form-label">password</label>
-                        <input type="text" class="form-control" id="your-surname" name="pword" required>
+                        <input type="text"  class="form-control" id="your-surname" name="pword" required>
                     </div>
                     <div class="col-md-6">
                         <label for="your-email" class="form-label">Your Email</label>
-                        <input type="email" class="form-control" id="your-email" name="email" required>
+                        <input type="email"  class="form-control" id="your-email" name="email" required>
                     </div>
                     <div class="col-md-6">
                         <label for="your-subject" class="form-label">Upload Picture</label>
-                        <input type="file" class="form-control" id="your-subject" name="image">
+                        <input type="file"  class="form-control" id="your-subject" name="image">
                     </div>
                     <div class="col-12">
                         <div class="row">
@@ -39,6 +41,41 @@
                     </div>
                     </div>
                 </form>
+                <script>
+                   $("#validationform").validate({
+                    rules:{
+                      name:{
+                        required :true,
+                      },
+                      email:{
+                        required :true,
+                      },
+                      pword:{
+                        required :true,
+                        minlength: 10,
+                      },
+                      image:{
+                        required :true,
+                      },
+                    },
+                    messages: {
+                      name:{
+                        required:"enter the name",
+                      },
+                      email:{
+                        required:"enter the email",
+                      },
+                      pword:{
+                        required:"enter the pword",
+                        minlength: "10 lenght are valid!"
+                      },
+                      image:{
+                        required:"enter the image",
+                      },
+                    }
+                   });
+                </script>
+               
             </div>
           </div>
         </div>

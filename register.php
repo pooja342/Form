@@ -12,6 +12,20 @@
     echo "Connection failed!"; 
   }
   
+  if(isset($_POST['email']))
+  {
+    $query = $conn->prepare("SELECT * FROM 'register ' WHERE email = '" . $_POST['email'] . "'");
+    $query->execute();
+  
+    if( $query->rowCount() > 0 ){
+        echo 'true';
+    }
+    else{
+        echo 'false';
+    } 
+  }
+ 
+
   if(isset($_POST['submit']))
   {
     $username=$_POST['name'];
